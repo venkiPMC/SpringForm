@@ -13,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Create an account</title>
+    <title>Premium details</title>
 
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
      <link href="${contextPath}/resources/css/new.css" rel="stylesheet">
@@ -27,6 +27,20 @@
    
 </head>
 <body>
+<div class="container">
+   <c:if test="${pageContext.request.userPrincipal.name != null}">
+        <form id="logoutForm" method="POST" action="${contextPath}/logout">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        </form>
+
+ 		<div class="text-default" align="right">
+        <h4>Welcome ${pageContext.request.userPrincipal.name} | 
+        <a onclick="document.forms['logoutForm'].submit()">Logout</a></h4>
+        </div>
+
+    </c:if>
+    </div>
+    
 <div class="container">
       <div class="price-box">
         <div class="row">
